@@ -8,7 +8,7 @@ public class B807 {
 		printIntArrayNumber(randomArray);
 		System.out.println("该数组最小的值为: " + min);
 		
-		randomArray = setArrayReversal(randomArray);
+		setArrayReversal(randomArray);
 		System.out.println("现在反转了数组.");
 		printIntArrayNumber(randomArray);
 	}
@@ -38,14 +38,17 @@ public class B807 {
 		return n;
 	}
 	
-	public static int[] setArrayReversal(int[] a) {
-		int[] x = new int[a.length];
-		int pos = a.length - 1;
-		int n = a[0];
-		for (int i = 0; i < a.length; i++) {
-			x[pos] = a[i];
+	public static void setArrayReversal(int[] a) {
+		int pos = a.length -1;
+		for (int i = 0; i < a.length / 2; i++) {
+			swapNumber(a, i, pos);
 			pos--;
 		}
-		return x;
+	}
+	
+	public static void swapNumber(int[] a,int x,int y){
+    int buffer = a[x];
+    a[x] = a[y];
+    a[y] = buffer;
 	}
 }
